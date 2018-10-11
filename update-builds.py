@@ -5,7 +5,7 @@ from contextlib import contextmanager
 __script_dir__ = os.path.dirname(os.path.abspath(__file__))
 
 bash = lambda c: os.popen(c).read().strip()
-bash = lambda i: print('bash: {}'.format(i))
+
 class IterableQueue(Queue):
     def __iter__(self):
         while True:
