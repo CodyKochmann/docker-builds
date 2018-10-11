@@ -54,7 +54,7 @@ with pushd(__script_dir__):
             docker_dirs.remove(i)
             with pushd(i):
                 print('building {}...'.format(i))
-                bash('docker build -t {} .'.format(i))
+                bash('docker build --no-cache -t codykochmann/{}:latest .'.format(i))
                 print('pushing {}...'.format(i))
-                bash('docker push {}'.format(i))
+                bash('docker push codykochmann/{}:latest'.format(i))
 
