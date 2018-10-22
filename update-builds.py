@@ -34,6 +34,10 @@ def pushd(d:str):
     finally:
         os.chdir(previous)
 
+class MissingDockerFromLine(Exception):
+    def __init__(self, name:str):
+        Exception.__init__(self, 'couldnt find a FROM line for {}'.format(name))
+
 def is_docker_dir(i:str) -> bool:
     return os.path.isdir(i) and 'Dockerfile' in os.listdir(i)
 
@@ -43,7 +47,7 @@ def docker_from(docker_dir:str) -> str:
         for line in f:
             if line.startswith('FROM '):
                 return line[5:].strip()
-    assert 0, 'couldnt find a FROM line for {}'.format(docker_dir)
+    raise MissingDockerFromLine(docker_dir)
 
 with pushd(__script_dir__):
 
@@ -62,6 +66,6 @@ with pushd(__script_dir__):
             updated_containers.add(i)
             with pushd(i):
                 print('building {}...'.format(i))
-                bash('docker build --no-cache -t codykochmann/{}:latest .'.format(i))
+                bash('docker build --no-cache -t codykochmann/{}:latest --squash --compress .'.format(i))
                 print('pushing {}...'.format(i))
                 bash('docker push codykochmann/{}:latest'.format(i))
