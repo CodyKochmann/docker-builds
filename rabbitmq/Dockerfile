@@ -1,5 +1,6 @@
 FROM rabbitmq:3-management
 MAINTAINER kochmanncody@gmail.com
+LABEL Description="lightweight rabbitmq tuned for reliability and minimal ram usage"
 COPY ./rabbitmq.config /etc/rabbitmq/rabbitmq.config
 EXPOSE 5672
 EXPOSE 15672
