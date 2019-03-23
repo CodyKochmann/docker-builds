@@ -1,6 +1,6 @@
-# codykochmann/resource
+# resource containers
 
-This is a tiny scratch container that blocks forever.
+A tiny scratch based container that blocks forever.
 
 #### quick start
 ```bash
