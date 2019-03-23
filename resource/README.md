@@ -67,7 +67,7 @@ I've seen this done with both the `busybox` and the `alpine` image as the placeh
 Here's a brief look at where the `resource` container lands in comparrison to the other commonly used placeholder images. 
 
 | image                 | image size | lowest observed RAM footprint (without system tweaks) |
-|:======================|:===========|:======================================================|
+|:----------------------|:-----------|:--------------------------------------------------------|
 | alpine                | 5.53MB     | 376KiB                                                |
 | busybox               | 1.2MB      | 276KiB                                                |
 | codykochmann/resource | 810kB      | 216KiB                                                |
