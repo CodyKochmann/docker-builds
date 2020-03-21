@@ -66,6 +66,6 @@ with pushd(__script_dir__):
             updated_containers.add(i)
             with pushd(i):
                 print('building {}...'.format(i))
-                bash('docker build --no-cache -t codykochmann/{}:latest --squash --compress .'.format(i))
+                bash('podman build -t codykochmann/{}:latest .'.format(i))
                 print('pushing {}...'.format(i))
-                bash('docker push codykochmann/{}:latest'.format(i))
+                bash('podman push codykochmann/{}:latest'.format(i))
