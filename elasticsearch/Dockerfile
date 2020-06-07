@@ -1,4 +1,4 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.6.0
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.7.1
 MAINTAINER kochmanncody@gmail.com
 ENV node.name=$HOSTNAME
 ENV discovery.zen.ping_timeout=300s
